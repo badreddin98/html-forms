@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Form Elements Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .form-section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: auto;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .range-value {
+            text-align: center;
+            margin-top: 5px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        /* Specific styling for the color picker section */
+        .color-preview {
+            width: 100px;
+            height: 100px;
+            margin: 10px auto;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+        }
+
+        /* Styles for selection elements */
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            margin-bottom: 10px;
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .radio-group label, .checkbox-group label {
+            display: inline-block;
+            margin-left: 8px;
+            font-weight: normal;
+        }
+
+        .radio-group input, .checkbox-group input {
+            width: auto;
+            margin: 0;
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        legend {
+            color: #444;
+            font-weight: bold;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML5 Form Elements Demo</h1>
+
+    <!-- Task 1: Email Input -->
+    <div class="form-section">
+        <h2>Task 1: Email Input</h2>
+        <form id="emailForm">
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" 
+                       placeholder="Enter your email address" 
+                       required>
+                <input type="submit" value="Submit Email">
+            </div>
+        </form>
+    </div>
+
+    <!-- Task 2: Number Input -->
+    <div class="form-section">
+        <h2>Task 2: Number Input</h2>
+        <form id="numberForm">
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" 
+                       placeholder="Enter quantity" 
+                       min="1" max="100" step="1" 
+                       required>
+                <input type="submit" value="Submit Quantity">
+            </div>
+        </form>
+    </div>
+
+    <!-- Task 3: Date Input -->
+    <div class="form-section">
+        <h2>Task 3: Date Input</h2>
+        <form id="dateForm">
+            <div class="form-group">
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" 
+                       required 
+                       min="2024-01-01" max="2024-12-31">
+                <input type="submit" value="Submit Date">
+            </div>
+        </form>
+    </div>
+
+    <!-- Task 4: Range Input -->
+    <div class="form-section">
+        <h2>Task 4: Range Input</h2>
+        <form id="rangeForm">
+            <div class="form-group">
+                <label for="range">Rating (1-10):</label>
+                <input type="range" id="range" name="range" 
+                       min="1" max="10" step="1" 
+                       value="5">
+                <div class="range-value" id="rangeValue">5</div>
+                <input type="submit" value="Submit Rating">
+            </div>
+        </form>
+    </div>
+
+    <!-- Task 5: Color Input -->
+    <div class="form-section">
+        <h2>Task 5: Color Input</h2>
+        <form id="colorForm">
+            <div class="form-group">
+                <label for="color">Select Color:</label>
+                <input type="color" id="color" name="color" 
+                       value="#4CAF50">
+                <div class="color-preview" id="colorPreview"></div>
+                <input type="submit" value="Submit Color">
+            </div>
+        </form>
+    </div>
+
+    <!-- Programming Preferences Form -->
+    <div class="form-section" role="region" aria-labelledby="selection-heading">
+        <h2 id="selection-heading">Programming Preferences</h2>
+        <form id="preferencesForm">
+            <div class="form-group">
+                <label for="programming-language">Favorite Programming Language:</label>
+                <select id="programming-language" name="programming-language" required 
+                        aria-required="true">
+                    <option value="" disabled selected>Choose your favorite language</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="csharp">C#</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="php">PHP</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <fieldset role="radiogroup" aria-labelledby="expertise-level">
+                    <legend id="expertise-level">Experience Level:</legend>
+                    <div class="radio-group">
+                        <div>
+                            <input type="radio" id="beginner" name="expertise" value="beginner" required>
+                            <label for="beginner">Beginner</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="intermediate" name="expertise" value="intermediate">
+                            <label for="intermediate">Intermediate</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="advanced" name="expertise" value="advanced">
+                            <label for="advanced">Advanced</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="form-group">
+                <fieldset role="group" aria-labelledby="platforms-heading">
+                    <legend id="platforms-heading">Development Platforms:</legend>
+                    <div class="checkbox-group">
+                        <div>
+                            <input type="checkbox" id="web" name="platforms" value="web">
+                            <label for="web">Web Development</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="mobile" name="platforms" value="mobile">
+                            <label for="mobile">Mobile Development</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="desktop" name="platforms" value="desktop">
+                            <label for="desktop">Desktop Development</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <input type="submit" value="Submit Preferences" 
+                   aria-label="Submit programming preferences">
+        </form>
+    </div>
+
+    <script>
+        // Display range value
+        const range = document.getElementById('range');
+        const rangeValue = document.getElementById('rangeValue');
+        range.addEventListener('input', function() {
+            rangeValue.textContent = this.value;
+        });
+
+        // Update color preview
+        const colorInput = document.getElementById('color');
+        const colorPreview = document.getElementById('colorPreview');
+        colorInput.addEventListener('input', function() {
+            colorPreview.style.backgroundColor = this.value;
+        });
+        // Initialize color preview
+        colorPreview.style.backgroundColor = colorInput.value;
+
+        // Form submission handlers
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                let output = '';
+                
+                if (this.id === 'preferencesForm') {
+                    // Handle platforms checkboxes specially
+                    const selectedPlatforms = Array.from(this.querySelectorAll('input[name="platforms"]:checked'))
+                        .map(checkbox => checkbox.value);
+                    
+                    for (let [key, value] of formData.entries()) {
+                        if (key !== 'platforms') {
+                            output += `${key}: ${value}\n`;
+                        }
+                    }
+                    output += `platforms: ${selectedPlatforms.join(', ')}\n`;
+                } else {
+                    for (let [key, value] of formData.entries()) {
+                        output += `${key}: ${value}\n`;
+                    }
+                }
+                
+                alert('Form submitted!\n' + output);
+            });
+        });
+    </script>
+</body>
+</html>
